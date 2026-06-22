@@ -1,50 +1,82 @@
-/* Reset básico */
-body{
+/* ==========================
+   RESET BÁSICO
+========================== */
+
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================
+   BODY
+========================== */
+
+body{
     background-color: #c8d6e5;
+    width: 100%;
     height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    overflow: hidden;
 }
 
-/* Container principal */
+/* ==========================
+   CONTAINER PRINCIPAL
+========================== */
+
 .main{
     position: relative;
     width: 800px;
 }
 
-/* Estilo comum dos dois títulos */
+/* ==========================
+   ESTILO DOS DOIS TÍTULOS
+========================== */
+
 h1{
     position: absolute;
+
     top: 50%;
     left: 50%;
 
     transform: translate(-50%, -50%);
-    margin: 0;
-    padding: 0;
 
     width: 100%;
+
     text-align: center;
 
     font-size: 220px;
-    text-transform: uppercase;
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    margin: 0;
+    padding: 0;
 }
 
-/* Texto inferior */
+/* ==========================
+   PRIMEIRO H1 (FUNDO)
+========================== */
+
 h1:nth-child(1){
     color: #000;
 }
 
-/* Texto superior */
+/* ==========================
+   SEGUNDO H1 (CAMADA SUPERIOR)
+========================== */
+
 h1:nth-child(2){
     color: #fff;
+
     background-color: #c8d6e5;
 
-    transition: .5s;
+    transition: 0.5s;
 
     clip-path: polygon(
         0 100%,
@@ -54,7 +86,10 @@ h1:nth-child(2){
     );
 }
 
-/* Revela o texto branco */
+/* ==========================
+   REVELAÇÃO DO TEXTO BRANCO
+========================== */
+
 h1:nth-child(2):hover{
     clip-path: polygon(
         0 0,
@@ -64,7 +99,10 @@ h1:nth-child(2):hover{
     );
 }
 
-/* Esconde novamente quando passa sobre o texto preto */
+/* ==========================
+   ESCONDE O BRANCO NOVAMENTE
+========================== */
+
 h1:nth-child(1):hover ~ h1{
     clip-path: polygon(
         0 0,
