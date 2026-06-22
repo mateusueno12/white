@@ -1,0 +1,75 @@
+/* Reset básico */
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #c8d6e5;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container principal */
+.main{
+    position: relative;
+    width: 800px;
+}
+
+/* Estilo comum dos dois títulos */
+h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    text-align: center;
+
+    font-size: 220px;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Texto inferior */
+h1:nth-child(1){
+    color: #000;
+}
+
+/* Texto superior */
+h1:nth-child(2){
+    color: #fff;
+    background-color: #c8d6e5;
+
+    transition: .5s;
+
+    clip-path: polygon(
+        0 100%,
+        100% 0,
+        100% 0,
+        0 100%
+    );
+}
+
+/* Revela o texto branco */
+h1:nth-child(2):hover{
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+}
+
+/* Esconde novamente quando passa sobre o texto preto */
+h1:nth-child(1):hover ~ h1{
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 0,
+        0 0
+    );
+}
